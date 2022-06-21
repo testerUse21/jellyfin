@@ -34,12 +34,7 @@ namespace Jellyfin.Api.Controllers
         [HttpGet("Keys")]
         [Authorize(Policy = Policies.RequiresElevation)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<QueryResult<AuthenticationInfo>>> GetKeys()
-        {
-            var keys = await _authenticationManager.GetApiKeys();
-
-            return new QueryResult<AuthenticationInfo>(keys);
-        }
+        
 
         /// <summary>
         /// Create a new api key.
